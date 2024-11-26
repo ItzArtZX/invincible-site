@@ -3,30 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ItzArtZX/invincible-site</title>
+    <title>Invincible site</title>
     <style>
-        /* Styling for the class */
-        .KICKASSELEMENT\.KICKASShidden {
-            font-family: Arial, sans-serif;
-            padding: 10px;
+        /* Base styles for the body */
+        body {
+            font-family: 'Verdana', sans-serif; /* Changed font */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #f4f4f4; /* Light theme background */
+            color: #333; /* Light theme text color */
+            transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+        }
+
+        /* Styling for the content elements */
+        .KICKASSELEMENT {
+            font-size: 2rem; /* Increased text scale */
+            padding: 20px;
             margin: 10px;
-            color: white;
-            background-color: black;
-            border: 1px solid red;
-            display: none; /* Initially hidden */
+            text-align: center; /* Centered text */
+            border: 1px solid #ccc;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Hidden by default */
+        .KICKASShidden {
+            display: none;
+        }
+
+        /* Dark theme styles */
+        body.dark-mode {
+            background-color: #333; /* Dark theme background */
+            color: #f4f4f4; /* Dark theme text color */
+        }
+
+        body.dark-mode .KICKASSELEMENT {
+            background-color: #444; /* Dark theme card background */
+            border-color: #666;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Button styles */
+        .theme-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            border: none;
+            border-radius: 8px;
+            background-color: #007bff;
+            color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .theme-toggle:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
-    <div class="KICKASSELEMENT KICKASShidden">Welcome to de blog</div>
+    <button class="theme-toggle">Switch Theme</button>
+
+    <div>destroy dat to win</div>
+    <div class="KICKASSELEMENT KICKASShidden">Welcome to de blog!</div>
     <div class="KICKASSELEMENT KICKASShidden">This is a placeholder post #1.</div>
     <div class="KICKASSELEMENT KICKASShidden">This is a placeholder post #2.</div>
     <div class="KICKASSELEMENT KICKASShidden">Stay tuned for more content!</div>
 
-    <!-- Optional JavaScript to toggle visibility -->
     <script>
-        document.querySelectorAll('.KICKASSELEMENT\\.KICKASShidden').forEach(element => {
-            element.style.display = 'block'; // Show elements when script runs
+        // Show hidden elements
+        document.querySelectorAll('.KICKASSELEMENT').forEach(element => {
+            element.classList.remove('KICKASShidden');
+        });
+
+        // Theme toggle functionality
+        const themeToggleButton = document.querySelector('.theme-toggle');
+        themeToggleButton.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            themeToggleButton.textContent = 
+                document.body.classList.contains('dark-mode') ? 'Switch to Light Theme' : 'Switch to Dark Theme';
         });
     </script>
 </body>
